@@ -93,14 +93,17 @@ export function ShotEntryScreen() {
       totalHoles
     )
     
-    // Get previous shot for auto-populate
+    // Get previous shot for auto-populate (only for subsequent shots within same hole)
     const currentHoleShots = getShotsForHole(currentHole)
     const prevShot = currentHoleShots.length > 0 ? currentHoleShots[currentHoleShots.length - 1] : null
     
+    // Only auto-populate start distance for subsequent shots WITHIN the same hole
+    // Don't auto-populate when moving to a new hole - let user input the starting distance
     if (getNextShotNumber(currentHole) !== 1 && prevShot) {
       newDefaults.startDistance = prevShot.endDistance
       newDefaults.startUnit = prevShot.endUnit
     }
+    // When starting a new hole (first shot), leave startDistance blank for user input
     
     reset(newDefaults)
   }, [currentHole, getNextShotNumber, getHoleShotCount, totalHoles, getShotsForHole, reset])
@@ -330,6 +333,7 @@ export function ShotEntryScreen() {
                     {...register('endDistance', {
                       setValueAs: (value) => value === '' ? undefined : Number(value),
                     })}
+                    className={isHoled ? 'bg-parchment' : ''}
                   />
                 </div>
                 <div className="w-16">
