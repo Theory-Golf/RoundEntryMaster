@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Golf Intelligence Theme — Base Styles */
+:root {
+  /* Foundation */
+  --linen: #F4F3F1;
+  --parchment: #ECEAE7;
+  --stone: #DCDAD6;
+  --pewter: #8F9490;
+  --flint: #5E6460;
+  --ink: #252220;
+  --white: #FFFFFF;
+  
+  /* Brand */
+  --forest: #2D4A2D;
+  --canopy: #1E3320;
+  --grove: #3D6640;
+  --forest-tint: #EBF0EB;
+  
+  /* Gold */
+  --gold: #B8973A;
+  --gold-light: #D4AF5A;
+  --gold-tint: #F7F4EA;
+  
+  /* Score */
+  --under: #2D6B4A;
+  --even: #8A9890;
+  --bogey: #C07840;
+  --double: #A84830;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  background-color: var(--linen);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--parchment);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--stone);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pewter);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+
+/* Input styles */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
